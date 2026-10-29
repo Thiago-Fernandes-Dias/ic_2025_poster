@@ -1,0 +1,90 @@
+# ==============================================================================
+# LaTeX / TeX Build Artifacts
+# ==============================================================================
+
+# Core engine and compiler outputs
+*.aux
+*.fls
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+
+# Build tools & SyncTeX
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+# Bibliography (BibTeX / Biber / BibLaTeX)
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+# Glossaries, Acronyms & Indices (MakeIndex / xindy)
+*.glo
+*.gls
+*.glg
+*.glsdefs
+*.idx
+*.ind
+*.ilg
+*.inx
+*.ist
+*.acn
+*.acr
+*.alg
+
+# Package-specific files
+_minted*
+*.pyg
+*.pytxcode
+pythontex-files-*
+*.nav
+*.snm
+*.vrb
+*.thm
+*.soc
+*.cpt
+
+# Intermediate & Converted files
+*.dvi
+*.xdv
+*-converted-to.*
+
+# ==============================================================================
+# Editor and OS Cache
+# ==============================================================================
+*.bak
+*.sav
+*.autosave
+.texstudio/
+.vscode/
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# ==============================================================================
+# Document Outputs & Whitelists (Option A)
+# ==============================================================================
+# Ignore PDFs by default to catch standalone/test builds and intermediate outputs
+*.pdf
+
+# Preserve vector PDF figures in figures/ if added in the future
+!figures/**/*.pdf
+
+# Whitelist the final poster output and preview image (Option A)
+!/main.pdf
+!/preview_poster-1.png
