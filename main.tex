@@ -103,9 +103,9 @@
   \vfill
   \postersection{INTRODUÇÃO}
 
-  A biometria por impressões digitais baseia-se na singularidade e perenidade dos padrões de cristas e vales na epiderme das pontas dos dedos. Em sistemas de identificação automatizada (\textit{AFIS}), a forma de representação das características extraídas é determinante para a taxa de acerto, escalabilidade e tempo de resposta.
+  A biometria por impressões digitais baseia-se na singularidade e perenidade dos padrões de cristas e vales na epiderme das pontas dos dedos [4]. Em sistemas de identificação automatizada (\textit{AFIS}), a forma de representação das características extraídas é determinante para a taxa de acerto, escalabilidade e tempo de resposta.
 
-  Como capturas biométricas reais sofrem com rotação, translação, contato parcial, variações de pressão e ruídos severos, a extração de representações discriminativas e invariantes é indispensável. Métodos clássicos baseados nas localizações e orientação das minúcias (terminações e bifurcações de cristas), assim como em sua quantidade variável são eficazes em imagens nítidas, mas exigem emparelhamento geométrico de alto custo computacional. Modelos baseados em~\textit{Deep Learning} geram representações compactas de tamanho fixo, permitindo verificação em tempo real.
+  Como capturas biométricas reais sofrem com rotação, translação, contato parcial, variações de pressão e ruídos severos, a extração de representações discriminativas e invariantes é indispensável. Métodos clássicos baseados nas localizações e orientação das minúcias (terminações e bifurcações de cristas), assim como em sua quantidade variável são eficazes em imagens nítidas, mas exigem emparelhamento geométrico de alto custo computacional [3, 4]. Modelos baseados em~\textit{Deep Learning} geram representações compactas de tamanho fixo, permitindo verificação em tempo real [1, 2].
 
   \vfill
   \postersection{MATERIAIS E MÉTODOS}
@@ -119,9 +119,9 @@
   \vspace{\stretch{0.35}}
   \noindent\textbf{Arquiteturas Avaliadas:}
   \begin{itemize}[leftmargin=1.1cm, itemsep=0.14cm, topsep=0.12cm, parsep=0pt]
-    \item \textbf{DeepPrint}: Rede convolucional com módulo \textit{Spatial Transformer Network} (STN) para alinhamento intrínseco (rotação e translação). Possui tronco compartilhado dividido em dois ramos multitarefa -- textura global e representação guiada por mapa de minúcias -- que geram um vetor 1D compacto de 512 dimensões.
-    \item \textbf{FLARE}: Baseado na rede FDRN (\textit{ResNet-34} com \textit{embeddings} posicionais senoidais), com alinhamento de pose via regressão direta ou votação nas minúcias. Extrai um tensor 3D denso $f = (f_s \oplus f_m) \odot S$, unindo características semânticas ($f_s$) e de minúcias ($f_m$) ponderadas pela máscara de segmentação ($S$).
-    \item \textbf{MCC}: Método clássico que constrói cilindros 3D locais invariantes ao redor de cada minúcia extraída pelo \textit{FingerNet}, discretizando a vizinhança espacial $(x, y)$ e direcional $(\theta)$ para codificar a densidade relativa das minúcias adjacentes.
+    \item \textbf{DeepPrint}: Rede convolucional com módulo \textit{Spatial Transformer Network} (STN) para alinhamento intrínseco (rotação e translação). Possui tronco compartilhado dividido em dois ramos multitarefa -- textura global e representação guiada por mapa de minúcias -- que geram um vetor 1D compacto de 512 dimensões [1, 5].
+    \item \textbf{FLARE}: Baseado na rede FDRN (\textit{ResNet-34} com \textit{embeddings} posicionais senoidais), com alinhamento de pose via regressão direta ou votação nas minúcias. Extrai um tensor 3D denso $f = (f_s \oplus f_m) \odot S$, unindo características semânticas ($f_s$) e de minúcias ($f_m$) ponderadas pela máscara de segmentação ($S$) [2].
+    \item \textbf{MCC}: Método clássico que constrói cilindros 3D locais invariantes ao redor de cada minúcia extraída pelo \textit{FingerNet}, discretizando a vizinhança espacial $(x, y)$ e direcional $(\theta)$ para codificar a densidade relativa das minúcias adjacentes [3].
   \end{itemize}
 
   \vspace{\stretch{0.35}}
