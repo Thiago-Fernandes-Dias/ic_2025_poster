@@ -126,31 +126,43 @@
 
   \vspace{\stretch{0.35}}
   \noindent\textbf{Realce de Cristas:}
-  Avaliaram-se os modelos \textit{UNetEnh} (U-Net) e \textit{PriorEnh} (difusão com prior de orientação), comparando o desempenho com e sem pré-processamento (Figura 1).
+  Avaliaram-se os modelos \textit{UNetEnh} (U-Net) e \textit{PriorEnh} (difusão com prior de orientação), comparando o desempenho com e sem pré-processamento (Figura 2).
 
   \vspace{\stretch{0.35}}
   \begin{center}
-    \begin{minipage}[b]{0.24\linewidth}
+    % Linha 1: FVC2000 DB1-A
+    \begin{minipage}[b]{0.32\linewidth}
       \centering
-      \includegraphics[height=10.2cm, width=\linewidth, keepaspectratio]{figures/datasets/fvc2000_db3a_orig.png}\\[0.1cm]
-      {\fontsize{24pt}{28pt}\selectfont (a) DB3-A (Orig.)}
+      \includegraphics[width=0.92\linewidth]{figures/results/deep_print_fvc_2000_db1_a.png}\\[0.06cm]
+      {\fontsize{24pt}{28pt}\selectfont (a) DeepPrint ($3,36\%$)}
     \end{minipage}\hfill
-    \begin{minipage}[b]{0.24\linewidth}
+    \begin{minipage}[b]{0.32\linewidth}
       \centering
-      \includegraphics[height=10.2cm, width=\linewidth, keepaspectratio]{figures/datasets/fvc2000_db3a_priorenh.png}\\[0.1cm]
-      {\fontsize{24pt}{28pt}\selectfont (b) DB3-A (\textit{PriorEnh})}
+      \includegraphics[width=0.92\linewidth]{figures/results/flare_voting_pose_fvc_2000_db1_a.png}\\[0.06cm]
+      {\fontsize{24pt}{28pt}\selectfont (b) FLARE Vot. ($0,81\%$)}
     \end{minipage}\hfill
-    \begin{minipage}[b]{0.24\linewidth}
+    \begin{minipage}[b]{0.32\linewidth}
       \centering
-      \includegraphics[height=10.2cm, width=\linewidth, keepaspectratio]{figures/datasets/fvc2002_db4a_sintetica.png}\\[0.1cm]
-      {\fontsize{24pt}{28pt}\selectfont (c) DB4-A (Sintética)}
+      \includegraphics[width=0.92\linewidth]{figures/results/mcc_fvc_2000_db1_a.png}\\[0.06cm]
+      {\fontsize{24pt}{28pt}\selectfont (c) MCC ($2,69\%$)}
+    \end{minipage}\\[0.15cm]
+    % Linha 2: Neurotechnology CrossMatch
+    \begin{minipage}[b]{0.32\linewidth}
+      \centering
+      \includegraphics[width=0.92\linewidth]{figures/results/deep_print_crossmatch.png}\\[0.06cm]
+      {\fontsize{24pt}{28pt}\selectfont (d) DeepPrint ($3,31\%$)}
     \end{minipage}\hfill
-    \begin{minipage}[b]{0.24\linewidth}
+    \begin{minipage}[b]{0.32\linewidth}
       \centering
-      \includegraphics[height=10.2cm, width=\linewidth, keepaspectratio]{figures/datasets/crossmatch_orig.png}\\[0.1cm]
-      {\fontsize{24pt}{28pt}\selectfont (d) CrossMatch}
-    \end{minipage}\\[0.2cm]
-    {\fontsize{24pt}{28pt}\selectfont \textbf{Figura 1:} Amostras: FVC2000 DB3-A original (a) e com \textit{PriorEnh} (b), sintética DB4-A (c) e CrossMatch (d).}
+      \includegraphics[width=0.92\linewidth]{figures/results/flare_voting_pose_crossmatch.png}\\[0.06cm]
+      {\fontsize{24pt}{28pt}\selectfont (e) FLARE Vot. ($0,12\%$)}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.32\linewidth}
+      \centering
+      \includegraphics[width=0.92\linewidth]{figures/results/mcc_crossmatch_sample_db.png}\\[0.06cm]
+      {\fontsize{24pt}{28pt}\selectfont (f) MCC ($2,10\%$)}
+    \end{minipage}\\[0.15cm]
+    {\fontsize{24pt}{28pt}\selectfont \textbf{Figura 1:} Pontuações de similaridade (Genuínos em verde vs. Impostores em vermelho) em DB1-A (a--c) e CrossMatch (d--f).}
   \end{center}
 
 \end{minipage}\hfill
@@ -202,43 +214,31 @@
   \end{center}
 
   \vfill
-  A Figura 2 ilustra as pontuações de similaridade no FVC2000 DB1-A e CrossMatch. No FLARE, impostores (vermelho) concentram-se próximos a 0,2 e genuínos (verde) acima de 0,6. O MCC superou o DeepPrint em bases ópticas nítidas (2,02\% vs. 3,04\% na Neurotechnology), mas degradou sob ruído severo (10,21\% no FVC2000 DB3-A).
+  A Figura 1 ilustra as pontuações de similaridade no FVC2000 DB1-A e CrossMatch. No FLARE, impostores (vermelho) concentram-se próximos a 0,2 e genuínos (verde) acima de 0,6. O MCC superou o DeepPrint em bases ópticas nítidas (2,02\% vs. 3,04\% na Neurotechnology), mas degradou sob ruído severo (10,21\% no FVC2000 DB3-A).
 
   \vspace{0.12cm}
   \begin{center}
-    % Linha 1: FVC2000 DB1-A
-    \begin{minipage}[b]{0.32\linewidth}
+    \begin{minipage}[b]{0.24\linewidth}
       \centering
-      \includegraphics[width=0.92\linewidth]{figures/results/deep_print_fvc_2000_db1_a.png}\\[0.06cm]
-      {\fontsize{24pt}{28pt}\selectfont (a) DeepPrint ($3,36\%$)}
+      \includegraphics[height=10.2cm, width=\linewidth, keepaspectratio]{figures/datasets/fvc2000_db3a_orig.png}\\[0.1cm]
+      {\fontsize{24pt}{28pt}\selectfont (a) DB3-A (Orig.)}
     \end{minipage}\hfill
-    \begin{minipage}[b]{0.32\linewidth}
+    \begin{minipage}[b]{0.24\linewidth}
       \centering
-      \includegraphics[width=0.92\linewidth]{figures/results/flare_voting_pose_fvc_2000_db1_a.png}\\[0.06cm]
-      {\fontsize{24pt}{28pt}\selectfont (b) FLARE Vot. ($0,81\%$)}
+      \includegraphics[height=10.2cm, width=\linewidth, keepaspectratio]{figures/datasets/fvc2000_db3a_priorenh.png}\\[0.1cm]
+      {\fontsize{24pt}{28pt}\selectfont (b) DB3-A (\textit{PriorEnh})}
     \end{minipage}\hfill
-    \begin{minipage}[b]{0.32\linewidth}
+    \begin{minipage}[b]{0.24\linewidth}
       \centering
-      \includegraphics[width=0.92\linewidth]{figures/results/mcc_fvc_2000_db1_a.png}\\[0.06cm]
-      {\fontsize{24pt}{28pt}\selectfont (c) MCC ($2,69\%$)}
-    \end{minipage}\\[0.15cm]
-    % Linha 2: Neurotechnology CrossMatch
-    \begin{minipage}[b]{0.32\linewidth}
-      \centering
-      \includegraphics[width=0.92\linewidth]{figures/results/deep_print_crossmatch.png}\\[0.06cm]
-      {\fontsize{24pt}{28pt}\selectfont (d) DeepPrint ($3,31\%$)}
+      \includegraphics[height=10.2cm, width=\linewidth, keepaspectratio]{figures/datasets/fvc2002_db4a_sintetica.png}\\[0.1cm]
+      {\fontsize{24pt}{28pt}\selectfont (c) DB4-A (Sintética)}
     \end{minipage}\hfill
-    \begin{minipage}[b]{0.32\linewidth}
+    \begin{minipage}[b]{0.24\linewidth}
       \centering
-      \includegraphics[width=0.92\linewidth]{figures/results/flare_voting_pose_crossmatch.png}\\[0.06cm]
-      {\fontsize{24pt}{28pt}\selectfont (e) FLARE Vot. ($0,12\%$)}
-    \end{minipage}\hfill
-    \begin{minipage}[b]{0.32\linewidth}
-      \centering
-      \includegraphics[width=0.92\linewidth]{figures/results/mcc_crossmatch_sample_db.png}\\[0.06cm]
-      {\fontsize{24pt}{28pt}\selectfont (f) MCC ($2,10\%$)}
-    \end{minipage}\\[0.15cm]
-    {\fontsize{24pt}{28pt}\selectfont \textbf{Figura 2:} Pontuações de similaridade (Genuínos em verde vs. Impostores em vermelho) em DB1-A (a--c) e CrossMatch (d--f).}
+      \includegraphics[height=10.2cm, width=\linewidth, keepaspectratio]{figures/datasets/crossmatch_orig.png}\\[0.1cm]
+      {\fontsize{24pt}{28pt}\selectfont (d) CrossMatch}
+    \end{minipage}\\[0.2cm]
+    {\fontsize{24pt}{28pt}\selectfont \textbf{Figura 2:} Amostras: FVC2000 DB3-A original (a) e com \textit{PriorEnh} (b), sintética DB4-A (c) e CrossMatch (d).}
   \end{center}
 
   \vfill
