@@ -19,9 +19,6 @@
 \usepackage{caption}
 \usepackage{enumitem}
 \usepackage{microtype}
-\usepackage{url}
-
-\bibliographystyle{unsrt}
 
 % Cor institucional verde UFABC do modelo PPTX original (#006633)
 \definecolor{ufabcgreen}{RGB}{0, 102, 51}
@@ -99,14 +96,14 @@
   \vfill
   \postersection{INTRODUÇÃO}
 
-  A biometria por impressões digitais baseia-se na singularidade e perenidade dos padrões de cristas e vales na epiderme das pontas dos dedos \cite{handbook_of_fp_recognition}. Em sistemas de identificação automatizada (\textit{AFIS}), a forma de representação das características extraídas é determinante para a taxa de acerto, escalabilidade e tempo de resposta.
+  A biometria por impressões digitais baseia-se na singularidade e perenidade dos padrões de cristas e vales na epiderme das pontas dos dedos [4]. Em sistemas de identificação automatizada (\textit{AFIS}), a forma de representação das características extraídas é determinante para a taxa de acerto, escalabilidade e tempo de resposta.
 
-  Como capturas biométricas reais sofrem com rotação, translação, contato parcial, variações de pressão e ruídos severos, a extração de representações discriminativas e invariantes é indispensável. Métodos clássicos baseados nas localizações e orientação das minúcias (terminações e bifurcações de cristas), assim como em sua quantidade variável são eficazes em imagens nítidas, mas exigem emparelhamento geométrico de alto custo computacional \cite{mcc, handbook_of_fp_recognition}. Modelos baseados em~\textit{Deep Learning} geram representações compactas de tamanho fixo, permitindo verificação em tempo real \cite{deep_print, flare}.
+  Como capturas biométricas reais sofrem com rotação, translação, contato parcial, variações de pressão e ruídos severos, a extração de representações discriminativas e invariantes é indispensável. Métodos clássicos baseados nas localizações e orientação das minúcias (terminações e bifurcações de cristas), assim como em sua quantidade variável são eficazes em imagens nítidas, mas exigem emparelhamento geométrico de alto custo computacional [3, 4]. Modelos baseados em~\textit{Deep Learning} geram representações compactas de tamanho fixo, permitindo verificação em tempo real [1, 2].
 
   \vfill
   \postersection{MATERIAIS E MÉTODOS}
   \textbf{Bases de Dados:}
-  Foram utilizados os subconjuntos A e B das competições \textit{Fingerprint Verification Competition} (FVC2000, FVC2002 e FVC2004) \cite{maio2002fvc2000}, que abrangem sensores ópticos, capacitivos e térmicos (DB1, DB2 e DB3) e geração sintética (DB4), com resoluções de 500 a 569 dpi e 800 imagens por base (100 dedos $\times$ 8 impressões). Adicionalmente, empregaram-se as bases ópticas da Neurotechnology (500 dpi) \cite{neurotechnology_verifinger}: \textit{CrossMatch} (408 imagens) \cite{neurotechnology_crossmatch} e \textit{DigitalPersona U.are.U} (520 imagens).
+  Foram utilizados os subconjuntos A e B das competições \textit{Fingerprint Verification Competition} (FVC2000, FVC2002 e FVC2004) [6], que abrangem sensores ópticos, capacitivos e térmicos (DB1, DB2 e DB3) e geração sintética (DB4), com resoluções de 500 a 569 dpi e 800 imagens por base (100 dedos $\times$ 8 impressões). Adicionalmente, empregaram-se as bases ópticas da Neurotechnology (500 dpi) [7]: \textit{CrossMatch} (408 imagens) [8] e \textit{DigitalPersona U.are.U} (520 imagens).
 
   \vspace{\stretch{0.35}}
   \noindent\textbf{Métricas Biométricas:}
@@ -115,9 +112,9 @@
   \vspace{\stretch{0.35}}
   \noindent\textbf{Arquiteturas Avaliadas:}
   \begin{itemize}[leftmargin=1.1cm, itemsep=0.14cm, topsep=0.12cm, parsep=0pt]
-    \item \textbf{DeepPrint}: Rede convolucional com módulo \textit{Spatial Transformer Network} (STN) para alinhamento intrínseco (rotação e translação). Possui tronco compartilhado dividido em dois ramos multitarefa -- textura global e representação guiada por mapa de minúcias -- que geram um vetor 1D compacto de 512 dimensões \cite{deep_print, Rohwedder2023}.
-    \item \textbf{FLARE}: Baseado na rede FDRN (\textit{ResNet-34} com \textit{embeddings} posicionais senoidais), com alinhamento de pose via regressão direta ou votação nas minúcias. Extrai um tensor 3D denso $f = (f_s \oplus f_m) \odot S$, unindo características semânticas ($f_s$) e de minúcias ($f_m$) ponderadas pela máscara de segmentação ($S$) \cite{flare}.
-    \item \textbf{MCC}: Método clássico que constrói cilindros 3D locais invariantes ao redor de cada minúcia extraída pelo \textit{FingerNet}, discretizando a vizinhança espacial $(x, y)$ e direcional $(\theta)$ para codificar a densidade relativa das minúcias adjacentes \cite{mcc}.
+    \item \textbf{DeepPrint}: Rede convolucional com módulo \textit{Spatial Transformer Network} (STN) para alinhamento intrínseco (rotação e translação). Possui tronco compartilhado dividido em dois ramos multitarefa -- textura global e representação guiada por mapa de minúcias -- que geram um vetor 1D compacto de 512 dimensões [1, 5].
+    \item \textbf{FLARE}: Baseado na rede FDRN (\textit{ResNet-34} com \textit{embeddings} posicionais senoidais), com alinhamento de pose via regressão direta ou votação nas minúcias. Extrai um tensor 3D denso $f = (f_s \oplus f_m) \odot S$, unindo características semânticas ($f_s$) e de minúcias ($f_m$) ponderadas pela máscara de segmentação ($S$) [2].
+    \item \textbf{MCC}: Método clássico que constrói cilindros 3D locais invariantes ao redor de cada minúcia extraída pelo \textit{FingerNet}, discretizando a vizinhança espacial $(x, y)$ e direcional $(\theta)$ para codificar a densidade relativa das minúcias adjacentes [3].
   \end{itemize}
 
   \vspace{\stretch{0.35}}
@@ -252,9 +249,16 @@
 
   \vfill
   \postersection{REFERÊNCIAS}
-  \fontsize{18pt}{21pt}\selectfont
-  \renewcommand{\refname}{}
-  \bibliography{references}
+  \fontsize{24pt}{28pt}\selectfont
+  \noindent
+  [1] ENGELSMA, J. J. et al. Learning a fixed-length fingerprint representation. \textit{IEEE TPAMI}, v. 43, n. 6, p. 1981--1997, 2021.\\[0.06cm]
+  [2] YU, Y. et al. Dense representation for robust fixed-length fingerprint matching. \textit{IEEE TBIOM}, 2024.\\[0.06cm]
+  [3] CAPPELLI, R. et al. Minutia Cylinder-Code: A new representation and matching technique. \textit{IEEE TPAMI}, v. 32, n. 12, p. 2128--2141, 2010.\\[0.06cm]
+  [4] MALTONI, D. et al. \textit{Handbook of Fingerprint Recognition}. 2. ed. Springer, 2009.\\[0.06cm]
+  [5] ROHWEDDER, T. DeepPrint: Evaluation of fixed-length fingerprint extractors. \textit{M.Sc. Thesis}, HPI, 2023.\\[0.06cm]
+  [6] MAIO, D. et al. FVC2000: Fingerprint Verification Competition. \textit{IEEE TPAMI}, v. 24, n. 3, p. 402--412, 2002.\\[0.06cm]
+  [7] NEUROTECHNOLOGY. VeriFinger SDK: Fingerprint demo databases. Disponível em: \texttt{https://www.neurotechnology.com}. Acesso em: 2025.\\[0.06cm]
+  [8] NEUROTECHNOLOGY. CrossMatch Sample Database. Disponível em: \texttt{https://www.neurotechnology.com/download.html}. Acesso em: 2026.
 
 \end{minipage}
 
